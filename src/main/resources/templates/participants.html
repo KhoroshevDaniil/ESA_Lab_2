@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Participants</title>
+</head>
+<body>
+<h1>All participants</h1>
+
+<br/>
+
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Age</td>
+        <td>Academic Degree</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="participant: ${participants}">
+        <td th:utext="${participant.id}"></td>
+        <td th:utext="${participant.name}"></td>
+        <td th:utext="${participant.age}"></td>
+        <td th:utext="${participant.academicDegree}"></td>
+        <td>
+            <form th:action="@{/participants/delete/{id}(id=${participant.id})}" th:method="post">
+                <div>
+                    <button type="submit">Delete</button>
+                </div>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<br/>
+
+<h3>Add new participant:</h3>
+<br/>
+<form th:action="@{/participants/create}" th:method="post" th:object="${participant}">
+    <label>Name
+        <input th:field="*{name}" required>
+    </label>
+    <br/>
+    <label>
+        Age
+        <input th:field="*{age}" required>
+    </label>
+    <br/>
+    <label>
+        Academic Degree
+        <input th:field="*{academicDegree}" required>
+    </label>
+    <br/>
+    <div>
+        <button type="submit">Add new</button>
+    </div>
+</form>
+
+</body>
+</html>

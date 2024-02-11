@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Papers</title>
+</head>
+<body>
+<h1>All papers</h1>
+
+<br/>
+
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>Title</td>
+        <td>Year</td>
+        <td>Author</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="paper: ${papers}">
+        <td th:utext="${paper.id}"></td>
+        <td th:utext="${paper.title}"></td>
+        <td th:utext="${paper.year}"></td>
+        <td th:utext="${paper.author.name}"></td>
+        <td>
+            <form th:action="@{/papers/delete/{id}(id=${paper.id})}" th:method="post">
+                <div>
+                    <button type="submit">Delete</button>
+                </div>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<br/>
+
+<h3>Add new participant:</h3>
+<br/>
+<form th:action="@{/papers/create}" th:method="post" th:object="${paper}">
+    <label>
+        Title
+        <input th:field="*{title}" required>
+    </label>
+    <br/>
+    <label>
+        Year
+        <input th:field="*{year}" required>
+    </label>
+    <br/>
+    <label>
+        Author
+        <select th:field="*{author}" required>
+            <option th:each="participant: ${participants}" th:value="${participant.id}" th:label="${participant.name}"></option>
+        </select>
+    </label>
+    <br/>
+    <div>
+        <button type="submit">Add new</button>
+    </div>
+</form>
+
+</body>
+</html>
