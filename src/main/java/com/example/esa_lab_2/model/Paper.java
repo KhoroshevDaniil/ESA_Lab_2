@@ -1,13 +1,15 @@
 package com.example.esa_lab_2.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "papers", schema = "public")
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Paper {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

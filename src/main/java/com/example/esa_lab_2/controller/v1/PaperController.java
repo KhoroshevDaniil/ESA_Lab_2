@@ -1,4 +1,4 @@
-package com.example.esa_lab_2.controller;
+package com.example.esa_lab_2.controller.v1;
 
 
 import com.example.esa_lab_2.model.Paper;
@@ -18,7 +18,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/papers")
+@RequestMapping("api/v1/papers")
 public class PaperController {
     private final PaperService paperService;
     private final ParticipantService participantService;

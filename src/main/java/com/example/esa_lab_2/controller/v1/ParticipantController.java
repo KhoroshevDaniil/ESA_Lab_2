@@ -1,4 +1,4 @@
-package com.example.esa_lab_2.controller;
+package com.example.esa_lab_2.controller.v1;
 
 import com.example.esa_lab_2.model.Participant;
 import com.example.esa_lab_2.service.ParticipantService;
@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/participants")
+@RequestMapping("api/v1/participants")
 public class ParticipantController {
 
     private final ParticipantService participantService;

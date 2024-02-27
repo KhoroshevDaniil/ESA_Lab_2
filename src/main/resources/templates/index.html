@@ -5,11 +5,17 @@
     <title>Welcome</title>
 </head>
 <body>
-<h1>Useful links:</h1>
+<h1>API V1:</h1>
 <ul>
-    <li><a th:href="@{/participants}">Participants view</a></li>
-    <li><a th:href="@{/papers}">Papers view</a></li>
-    <li><a th:href="@{/papers/search?author=past_your_name}">Search Papers by Participant name</a></li>
+    <li><a th:href="@{/api/v1/participants}">Participants view</a></li>
+    <li><a th:href="@{/api/v1/papers}">Papers view</a></li>
+    <li><a th:href="@{/api/v1/papers/search?author=past_your_name}">Search Papers by Participant name</a></li>
+</ul>
+
+<h1>API V2 (REST):</h1>
+<ul>
+    <li><a th:href="@{/api/v2/participants}">Get all participants</a></li>
+    <li><a th:href="@{/api/v2/papers}">Get all papers</a></li>
 </ul>
 </body>
 </html>
